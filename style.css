@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --crt-bg: #1a1a1a;
+    --pixel-red: #ff3366;
+    --pixel-green: #00cc00;
+    --pixel-blue: #3366ff;
+    --pixel-yellow: #ffcc00;
+    --pixel-white: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Body */
+
+body {
+    background-color: var(--crt-bg);
+    color: var(--pixel-white);
+    font-family: 'VT323', sans-serif;
+}
+
+/* CRT Overlay */
+
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.25) 50%), */
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.15) 0px,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Icon Section */
+
+.icon-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+/* Icon */
+
+.icon {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--pixel-white);
+    border-bottom: 1px solid var(--pixel-white);
+}
+
+/* Content Section */
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Input Section */
+
+.input-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Input */
+
+.input-section input {
+    width: 100%;
+    padding: 10px;
+    border: 4px solid #888686;
+    border-radius: 6px;
+    background-color: var(--pixel-white);
+    font-family: 'VT323', sans-serif;
+}
+
+/* Add Button */
+
+.add-button {
+    text-align: center;
+    padding: 4px;
+    background-color: var(--pixel-green);
+    color: var(--pixel-white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    transform: scale(1.1);
+    background-color: var(--pixel-red);
+}
+
+/* List Section */
+
+@keyframes fadeUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+     }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+     }
+}
+
+@keyframes fadeOut {
+    from { 
+        opacity: 1;
+        transform: translateY(0);
+     }
+    to { 
+        opacity: 0;
+        transform: translateY(50px);
+     }
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 2rem;
+    padding: 0 1rem;
+}
+
+/* List Item */
+
+.list .list-item {
+    user-select: none;
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: .5rem;
+    border: 4px solid #888686;
+    border-radius: 6px;
+    background-color: var(--pixel-white);
+    cursor: pointer;
+    animation: fadeUp 1s forwards ease;
+}
+
+.list .list-item.fade-out {
+    will-change: transform;
+    animation: fadeOut 1s forwards ease;
+}
